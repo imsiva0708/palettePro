@@ -28,8 +28,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html',
-                           test = 'hi')
+    return render_template('result.html'
+                           )
 
 @app.route('/submit', methods=['POST'])
 def submit():
