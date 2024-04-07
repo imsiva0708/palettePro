@@ -1,6 +1,7 @@
 import os
 import googlesearch
 import google.generativeai as genai
+from stringmaker import stringmaker
 
 genai.configure(api_key=f"{os.getenv('GEMINI_API_KEY')}")
 
@@ -39,7 +40,6 @@ convo = model.start_chat(history=[])
 items = [x for x in input("Enter ingredients: ").split(' ')]
 convo.send_message(f"Act as an experienced chef and homecook. generate me list of food items where the key ingredients are all of {items};output the items in a single line seperated by commas")
 # print(convo.last.text)
-list = convo.last.text.split(',')
-print(list)
-for item in list:
-    googlesearch.search(item)
+ingredients_list = convo.last.text.split(',')
+print(ingredients_list)
+stringmaker(ingredients_list)

@@ -1,6 +1,7 @@
 import requests
 import os
 import json 
+from scrap import extract_main_image
 
 API_KEY = os.getenv('GOOGLE_CUSTOM_SEARCH_API_KEY')
 SEARCH_ID = os.getenv('GOOGLE_SEARCH_ENGINE_ID')
@@ -16,4 +17,11 @@ def search(item):
 
     response = requests.get(url,params=params)
     results = response.json()
-    print(results['items'][0]['link'])
+    link = results['items'][0]['link']
+    title = results['items'][0]['title']
+    list=[]
+    list.append(link)
+    list.append(title)
+    list.append(extract_main_image(link))
+    return list
+

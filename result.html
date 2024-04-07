@@ -173,33 +173,39 @@
             opacity: 0.90;
             border-radius: 56px;
         }
-
         .recommendations-outercontainer {
             display: flex;
             flex-wrap: wrap;
-            justify-content: flex-start; /* Center align items horizontally */
+            justify-content: center; /* Center align items horizontally */
             gap: 20px;
             overflow-y: scroll; /* Add this line */
             width: 96%;
             margin: 0 auto;
             max-height: 670px;
-            border-radius: 20px
+            border-radius: 7%;
         }
         .recommendation-slice {
             position: relative;
-            width: 48%; /* Adjust the width to accommodate two items in a row */
+            width: 47%; 
             height: 194.59px;
-            margin-bottom: 20px;
-            z-index:3;
+            margin-top: 20px;
         }
         .recommendation-image {
+            position: relative;
             width: 100%;
             height: 100%;
-            background: url("https://houseofnasheats.com/wp-content/uploads/2023/05/onion-rings-1.jpg");
-            background-position: center;
             border-radius: 27px;
+            overflow: hidden;
             background-size: cover;
-            z-index: 0;
+        }
+        .recommendation-image img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
         }
         .text {
             position: absolute;
@@ -210,10 +216,11 @@
             font-size: 16px;
             color: #000000;
             text-align: center;
-            white-space: nowrap; /* Keeps the text in one line */
-            overflow: hidden; /* Hides the overflowing text */
-            text-overflow: ellipsis; /* Shows '...' for the overflowing text */
-            left: 10px;
+            white-space: nowrap; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+            bottom: 23px;
+            left: 15px;
         }
         .green-rectangle {
             position: absolute;
@@ -222,7 +229,6 @@
             background: #C3DBB4;
             opacity: 0.91;
             border-radius: 0px 0px 20px 20px;
-            z-index: 2;
             bottom: 0%;
         }
         .link{
@@ -235,17 +241,21 @@
             font-size: 11px;
             line-height: 14px;
             color: #2958B4;
-            top: 51%;
+            top: 59%;
             left: 46px;
             text-align: center;
-            white-space: nowrap; /* Keeps the text in one line */
-            overflow: hidden; /* Hides the overflowing text */
-            text-overflow: ellipsis; /* Shows '...' for the overflowing text */
+            white-space: nowrap; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+        }
+        .spoon-container{
+            width: 100%;
+            height: 100%;
         }
         .spoon {
+            max-width: 18px;
+            max-height: 18px;
             position: absolute;
-            top: 30px;
-            left: 17px;
         }
         </style>
 </head>
@@ -297,10 +307,98 @@
         <div class="resultBoxShell">
             <div class="resultOuterbox">
                 <div class="resultInnerbox mt-7">
-                    <div class="recommendations-outercontainer mt-6">
-                        <div class="recommendation-slice">   
+                    <div class="recommendations-outercontainer mt-6">  
                         <!-- Repeat the recommendation-slice divs for each item -->
-                    </div>
+                        <div class="recommendation-slice">
+                            <div class="recommendation-image">
+                                <img src="https://cdn.loveandlemons.com/wp-content/uploads/2019/09/pickled-red-onions.jpg" alt="Onion Rings">
+                                <div class="green-rectangle">
+                                    <div class="spoon-container">
+                                        <img class="spoon" src="static/winter-cozy-spoon-icon-by-Vexels 1.png" alt="Spoon Icon">
+                                    </div>
+                                    <p class="text">Pickled Red Onions - Recipes by Love and Lemons</p>
+                                    <a class="link" href="https://www.loveandlemons.com/pickled-red-onions/">https://www.loveandlemons.com/pickled-red-onions/</a>
+                                </div>
+                            </div>
+                        </div> <div class="recommendation-slice">
+                            <div class="recommendation-image">
+                                <img src="https://thesuburbansoapbox.com/wp-content/uploads/2021/08/Best-Gazpacho.jpg" alt="Onion Rings">
+                                <div class="green-rectangle">
+                                    <div class="spoon-container">
+                                        <img class="spoon" src="static/winter-cozy-spoon-icon-by-Vexels 1.png" alt="Spoon Icon">
+                                    </div>
+                                    <p class="text">The Best Gazpacho - The Suburban Soapbox</p>
+                                    <a class="link" href="https://thesuburbansoapbox.com/the-very-best-gazpacho-recipe/">https://thesuburbansoapbox.com/the-very-best-gazpacho-recipe/</a>
+                                </div>
+                            </div>
+                        </div> <div class="recommendation-slice">
+                            <div class="recommendation-image">
+                                <img src="https://www.allrecipes.com/thmb/EimL1mzTI4Wzqy0rnZxbrVq4c1s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/13309-rich-and-simple-french-onion-soup-mfs-037-d1fb84eae1254dabbfb99d8c9842fac0.jpg" alt="Onion Rings">
+                                <div class="green-rectangle">
+                                    <div class="spoon-container">
+                                        <img class="spoon" src="static/winter-cozy-spoon-icon-by-Vexels 1.png" alt="Spoon Icon">
+                                    </div>
+                                    <p class="text">Rich and Simple French Onion Soup Recipe</p>
+                                    <a class="link" href="https://www.allrecipes.com/recipe/13309/rich-and-simple-french-onion-soup/">https://www.allrecipes.com/recipe/13309/rich-and-simple-french-onion-soup/</a>
+                                </div>
+                            </div>
+                        </div> <div class="recommendation-slice">
+                            <div class="recommendation-image">
+                                <img src="None" alt="Onion Rings">
+                                <div class="green-rectangle">
+                                    <div class="spoon-container">
+                                        <img class="spoon" src="static/winter-cozy-spoon-icon-by-Vexels 1.png" alt="Spoon Icon">
+                                    </div>
+                                    <p class="text">Garlic Vinegar Recipe - Food.com</p>
+                                    <a class="link" href="https://www.food.com/recipe/garlic-vinegar-251602">https://www.food.com/recipe/garlic-vinegar-251602</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recommendation-slice">
+                            <div class="recommendation-image">
+                                <img src="https://cdn.loveandlemons.com/wp-content/uploads/2019/09/pickled-red-onions.jpg" alt="Onion Rings">
+                                <div class="green-rectangle">
+                                    <div class="spoon-container">
+                                        <img class="spoon" src="static/winter-cozy-spoon-icon-by-Vexels 1.png" alt="Spoon Icon">
+                                    </div>
+                                    <p class="text">Pickled Red Onions - Recipes by Love and Lemons</p>
+                                    <a class="link" href="https://www.loveandlemons.com/pickled-red-onions/">https://www.loveandlemons.com/pickled-red-onions/</a>
+                                </div>
+                            </div>
+                        </div> <div class="recommendation-slice">
+                            <div class="recommendation-image">
+                                <img src="https://thesuburbansoapbox.com/wp-content/uploads/2021/08/Best-Gazpacho.jpg" alt="Onion Rings">
+                                <div class="green-rectangle">
+                                    <div class="spoon-container">
+                                        <img class="spoon" src="static/winter-cozy-spoon-icon-by-Vexels 1.png" alt="Spoon Icon">
+                                    </div>
+                                    <p class="text">The Best Gazpacho - The Suburban Soapbox</p>
+                                    <a class="link" href="https://thesuburbansoapbox.com/the-very-best-gazpacho-recipe/">https://thesuburbansoapbox.com/the-very-best-gazpacho-recipe/</a>
+                                </div>
+                            </div>
+                        </div> <div class="recommendation-slice">
+                            <div class="recommendation-image">
+                                <img src="https://www.allrecipes.com/thmb/EimL1mzTI4Wzqy0rnZxbrVq4c1s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/13309-rich-and-simple-french-onion-soup-mfs-037-d1fb84eae1254dabbfb99d8c9842fac0.jpg" alt="Onion Rings">
+                                <div class="green-rectangle">
+                                    <div class="spoon-container">
+                                        <img class="spoon" src="static/winter-cozy-spoon-icon-by-Vexels 1.png" alt="Spoon Icon">
+                                    </div>
+                                    <p class="text">Rich and Simple French Onion Soup Recipe</p>
+                                    <a class="link" href="https://www.allrecipes.com/recipe/13309/rich-and-simple-french-onion-soup/">https://www.allrecipes.com/recipe/13309/rich-and-simple-french-onion-soup/</a>
+                                </div>
+                            </div>
+                        </div> <div class="recommendation-slice">
+                            <div class="recommendation-image">
+                                <img src="None" alt="Onion Rings">
+                                <div class="green-rectangle">
+                                    <div class="spoon-container">
+                                        <img class="spoon" src="static/winter-cozy-spoon-icon-by-Vexels 1.png" alt="Spoon Icon">
+                                    </div>
+                                    <p class="text">Garlic Vinegar Recipe - Food.com</p>
+                                    <a class="link" href="https://www.food.com/recipe/garlic-vinegar-251602">https://www.food.com/recipe/garlic-vinegar-251602</a>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
