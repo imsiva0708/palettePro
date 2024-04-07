@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PalettePro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Martel:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Tera:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <style>
+        .body {
+            max-width: 100%;
+            height: auto;
+            background-image: url('static/Background.png');
+            background-repeat: no-repeat;
+        }
+        .headnav {
+            margin-top: 2%;
+        }
+        .logo {
+            /* cursor: url("static/cursor.svg"); */
+            position: absolute;
+            max-width: 600px;
+            margin-top: 4%;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+        .heading1{        
+            font-family: 'Marcellus';
+            font-style: normal;
+            font-weight: 200;
+            font-size: 85px;
+            line-height: 120px;
+            color: #FFFFFF;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            margin-top: 24%;             
+        }
+        .para1
+            {
+            font-family: 'Martel';
+            font-style: normal;
+            font-weight: 200;
+            font-size: 40px;
+            line-height: 81px;
+            color: #FFFFFF;
+            margin-right: 15%;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            margin-left: .7%;
+        }
+        .nav {
+            display: flex;
+            justify-content: flex-start;
+        }
+        .nav-links {
+            position: absolute;
+            display: flex;
+            list-style: none;
+            margin-left: 63%;
+            margin-right: 19%;
+            margin-top: 4%;
+        }
+        .nav-text {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 280;
+            font-size: 30px;
+            line-height: 39px;   
+            color: #FFFFFF;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        }
+        .rectangleShell{
+            width: 430px;
+            height: 850px;
+        }
+
+        .innerRectangle-selectionbox {
+            position: absolute;
+            width: 429.77px;
+            height: 92%;
+            background: rgba(217, 217, 217, 0.84);
+            opacity: 0.78;
+            border-radius: 56px;
+            margin-top: 25px;
+        }
+        .outerRectangle-selectionbox{
+            position: absolute;
+            width: 430px;
+            height: 97%;
+            background: rgba(217, 217, 217, 0.74);
+            opacity: 0.62;
+            border-radius: 76px;
+        }
+        .mtop {
+            margin-top: 3rem/* 44px */;
+        }
+        .searchcontainer {
+            position: relative;
+        }
+        .searchbox-rectangle {
+            width: 328.66px;
+            height: 50.87px;
+            background: #F3EFEF;
+            border-radius: 24px;
+            margin-left: 10%;
+            padding-left: 10%;
+            padding-right: 10%;
+        }
+        #searchicon {
+            position: absolute;
+            top: 50%;
+            margin-left: 75%;
+            margin-top: 2px;
+            
+        }
+        .buttonBox-yellow{
+            width: 283.46px;
+            height: 34.6px;
+            background: #F3CC92;
+            border-radius: 23px;
+            margin-left:14%;
+            justify-content: space-around;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+        .buttonBox-green{
+            width: 283.46px;
+            height: 34.6px;
+            background: #7AAC52;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 23px;
+            margin-left: 13.7%;
+        }
+        .buttonfont{
+            font-family: 'Lexend Tera';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 15px;
+            color: rgba(0, 0, 0, 0.51);
+            margin-left: 6px;
+        }
+        .marginLeft {
+            margin-left: 9%;
+        }
+        .resultOuterbox {
+            width: 761px;
+            height: 88.5%;
+            background: rgba(217, 217, 217, 0.74);
+            opacity: 0.92;
+            border-radius: 76px;
+        }
+        .resultBoxShell {
+            width: 761px;
+            height: 850px;
+        }
+        .resultInnerbox{
+            position: absolute;
+            width: 760.59px;
+            height: 92%;
+            background: rgba(217, 217, 217, 0.84);
+            opacity: 0.90;
+            border-radius: 56px;
+        }
+
+        .recommendations-outercontainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start; /* Center align items horizontally */
+            gap: 20px;
+            overflow-y: scroll; /* Add this line */
+            width: 96%;
+            margin: 0 auto;
+            max-height: 670px;
+            border-radius: 20px
+        }
+        .recommendation-slice {
+            position: relative;
+            width: 48%; /* Adjust the width to accommodate two items in a row */
+            height: 194.59px;
+            margin-bottom: 20px;
+            z-index:3;
+        }
+        .recommendation-image {
+            width: 100%;
+            height: 100%;
+            background: url("https://houseofnasheats.com/wp-content/uploads/2023/05/onion-rings-1.jpg");
+            background-position: center;
+            border-radius: 27px;
+            background-size: cover;
+            z-index: 0;
+        }
+        .text {
+            position: absolute;
+            width: 90%;
+            font-family: 'Kodchasan';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            color: #000000;
+            text-align: center;
+            white-space: nowrap; /* Keeps the text in one line */
+            overflow: hidden; /* Hides the overflowing text */
+            text-overflow: ellipsis; /* Shows '...' for the overflowing text */
+            left: 10px;
+        }
+        .green-rectangle {
+            position: absolute;
+            width: 100%;
+            height: 54.88px;
+            background: #C3DBB4;
+            opacity: 0.91;
+            border-radius: 0px 0px 20px 20px;
+            z-index: 2;
+            bottom: 0%;
+        }
+        .link{
+            position: absolute;
+            width: 79%;
+            height: 14px;
+            font-family: 'Kodchasan';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 11px;
+            line-height: 14px;
+            color: #2958B4;
+            top: 51%;
+            left: 46px;
+            text-align: center;
+            white-space: nowrap; /* Keeps the text in one line */
+            overflow: hidden; /* Hides the overflowing text */
+            text-overflow: ellipsis; /* Shows '...' for the overflowing text */
+        }
+        .spoon {
+            position: absolute;
+            top: 30px;
+            left: 17px;
+        }
+        </style>
+</head>
+<body class ='body'>
+    <div class="container mx-auto">
+        <nav class="flex object-left">
+            <div class="nav-links">
+                <a href="#" class="px-5 nav-text">Saved</a>
+                <img src="static/Line_nav.svg" alt="">
+                <a href="#" class="px-5 nav-text">Join</a>
+                <img src="static/Line_nav.svg" alt="">
+                <a href="#" class="px-5 nav-text">Login</a>
+            </div>
+        </nav>
+        <img src="static/fullLogo.svg" class="logo size_logo"  alt="logo">
+        <h1 class="heading1 ml-1">Welcome to PalettePro</h1>
+        <p class="para1">Your go-to destination for delicious recipes, and culinary inspiration! <br>
+        Whether you're a beginner or a seasoned chef, we've got something for everyone...
+        </p> 
+    </div>
+    <div class="2_boxes flex container gap-9 mx-auto mtop">
+        <div class="rectangleShell">
+            <div class="outerRectangle-selectionbox">
+            </div>
+            <div class="innerRectangle-selectionbox">
+                <form id="inputForm">
+                    <div class="searchcontainer">
+                        <img src="static/Search.svg" id="searchicon" alt="">   
+                        <input type="text" id="input_data" name="input_data" class="searchbox-rectangle mt-9" ><br>
+                    </div>
+                    <div class="2Buttons ml-1">
+                      <div class="addInputButton">
+                        <button type="button" onclick="addInput()"class="buttonBox-yellow mt-4"><div class="flex text/vector ml-7 mt-1"><img src="static/plus.png"><span class="buttonfont">
+                            Add More ingredients
+                          </span></div></button><br>
+                        </div>
+                        <!-- <button type="button" value='Submit' onclick="clearInputs()">Clear Inputs</button><br> -->
+                        <div class="buttonBox-green mt-3">
+                          <div class="findRecipefont flex text/vector marginLeft mt-1">
+                            <img src="static/find_recipe.svg" class="h-6 mt-1.5 mr-1">
+                            <input type="submit" class="buttonfont mt-1 " value="Find Recipes">
+                          </div>
+                        </div>
+                    </div>
+                </form>
+                <img src="static/Line1_selectionbox.svg" class="mt-9 ml-7" alt="">
+            </div>
+        </div>
+        <div class="resultBoxShell">
+            <div class="resultOuterbox">
+                <div class="resultInnerbox mt-7">
+                    <div class="recommendations-outercontainer mt-6">
+                        <div class="recommendation-slice">   
+                        <!-- Repeat the recommendation-slice divs for each item -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
