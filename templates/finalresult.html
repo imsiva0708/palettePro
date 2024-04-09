@@ -176,7 +176,7 @@
         .recommendations-outercontainer {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* Center align items horizontally */
+            justify-content: flex-start; /* Center align items horizontally */
             gap: 20px;
             overflow-y: scroll; /* Add this line */
             width: 96%;
@@ -308,55 +308,96 @@
             <div class="resultOuterbox">
                 <div class="resultInnerbox mt-7">
                     <div class="recommendations-outercontainer mt-6">  
-                        <!-- Repeat the recommendation-slice divs for each item -->
+                        {% for recommendation in recommendations %}
                         <div class="recommendation-slice">
                             <div class="recommendation-image">
-                                <img src="https://cdn.loveandlemons.com/wp-content/uploads/2021/11/beet-salad-1.jpg" alt="Beet Salad with Goat Cheese and Balsamic Recipe - Love and ...">
+                                <img src='{{recommendation["img"]}}' alt="">
                                 <div class="green-rectangle">
                                     <div class="spoon-container">
-                                        <img class="spoon" src="static/winter-cozy-spoon-icon-by-Vexels 1.png" alt="Spoon Icon">
                                     </div>
-                                    <p class="text">Beet Salad with Goat Cheese and Balsamic Recipe - Love and ...</p>
-                                    <a class="link" href="https://www.loveandlemons.com/beet-salad-recipe/">https://www.loveandlemons.com/beet-salad-recipe/</a>
-                                </div>
-                            </div>
-                        </div> <div class="recommendation-slice">
-                            <div class="recommendation-image">
-                                <img src="https://sallysbakingaddiction.com/wp-content/uploads/2017/07/slice-of-apple-pie-2.jpg" alt="Favorite Apple Pie Recipe (VIDEO) - Sally's Baking Addiction">
-                                <div class="green-rectangle">
-                                    <div class="spoon-container">
-                                        <img class="spoon" src="static/winter-cozy-spoon-icon-by-Vexels 1.png" alt="Spoon Icon">
-                                    </div>
-                                    <p class="text">Favorite Apple Pie Recipe (VIDEO) - Sally's Baking Addiction</p>
-                                    <a class="link" href="https://sallysbakingaddiction.com/apple-pie-recipe/">https://sallysbakingaddiction.com/apple-pie-recipe/</a>
-                                </div>
-                            </div>
-                        </div> <div class="recommendation-slice">
-                            <div class="recommendation-image">
-                                <img src="https://sugarspunrun.com/wp-content/uploads/2022/02/The-Best-Carrot-Cake-Recipe-1-of-1-5.jpg" alt="The Best Carrot Cake Recipe (with Video) - Sugar Spun Run">
-                                <div class="green-rectangle">
-                                    <div class="spoon-container">
-                                        <img class="spoon" src="static/winter-cozy-spoon-icon-by-Vexels 1.png" alt="Spoon Icon">
-                                    </div>
-                                    <p class="text">The Best Carrot Cake Recipe (with Video) - Sugar Spun Run</p>
-                                    <a class="link" href="https://sugarspunrun.com/best-carrot-cake-recipe/">https://sugarspunrun.com/best-carrot-cake-recipe/</a>
-                                </div>
-                            </div>
-                        </div> <div class="recommendation-slice">
-                            <div class="recommendation-image">
-                                <img src="https://minimalistbaker.com/wp-content/uploads/2013/04/How-to-Juice-without-a-Juicer.jpg" alt="Apple Carrot Beet Ginger Juice | Minimalist Baker Recipes">
-                                <div class="green-rectangle">
-                                    <div class="spoon-container">
-                                        <img class="spoon" src="static/winter-cozy-spoon-icon-by-Vexels 1.png" alt="Spoon Icon">
-                                    </div>
-                                    <p class="text">Apple Carrot Beet Ginger Juice | Minimalist Baker Recipes</p>
-                                    <a class="link" href="https://minimalistbaker.com/juice-without-a-juicer-apple-carrot-beet-ginger-juice/">https://minimalistbaker.com/juice-without-a-juicer-apple-carrot-beet-ginger-juice/</a>
+                                    <p class="text">{{recommendation['title']}}</p>
+                                    <a href="{{recommendation['link']}}" class="link">{{recommendation['link']}}</a>
                                 </div>
                             </div>
                         </div>
+                        {%endfor%}
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        var inputValues = []; // Array to store input values
+
+        // Function to add input to the array
+        function addInput() {
+            var input = document.getElementById('input_data').value;
+            if (input.trim() !== '') {
+                inputValues.push(input);
+                document.getElementById('input_data').value = '';
+                displayInputs();
+            }
+        }
+        // Function to clear the accumulated inputs
+        function clearInputs() {
+            inputValues = [];
+            document.getElementById('input_data').value = '';
+            displayInputs();
+        }
+
+        document.getElementById('inputForm').addEventListener('submit', function(event) {
+            // event.preventDefault(); // Prevent the default form submission
+
+            // Send all the inputs to the server
+            fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(inputValues) // Send inputValues array as JSON
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data); // Log the response from the server
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+    <!-- <script>
+        var inputValues = []; // Array to store input values
+
+        // Function to add input to the array
+        function addInput() {
+            var input = document.getElementById('input_data').value;
+            if (input.trim() !== '') {
+                inputValues.push(input);
+                document.getElementById('input_data').value = '';
+                displayInputs();
+            }
+        }
+
+        // Function to clear the accumulated inputs
+        function clearInputs() {
+            inputValues = [];
+            document.getElementById('input_data').value = '';
+            displayInputs();
+        }
+
+        // Function to submit inputs to Flask backend
+        function submitInputs() {
+            fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(inputValues) // Send inputValues array as JSON
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data); // Log the response from the server
+                // Redirect to another page or handle the response as needed
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script> -->
 </body>
 </html>

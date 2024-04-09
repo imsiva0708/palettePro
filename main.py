@@ -1,45 +1,36 @@
-import os
-import googlesearch
-import google.generativeai as genai
-from stringmaker import stringmaker
+from gemini import getRecipe
+from googlesearch import search
+from scrap import extract_main_image
 
-genai.configure(api_key=f"{os.getenv('GEMINI_API_KEY')}")
+def dictionaryMaker(mainlist):
+    list_of_dictionaries = []
 
-# Set up the model
-generation_config = {
-  "temperature": 0.9,
-  "top_p": 1,
-  "top_k": 1,
-  "max_output_tokens": 2048,
-}
+    for item in mainlist:
+        dictionary = {
+            'link': item[0],
+            'title': item[1],
+            'img': item[2]
+        }
+        list_of_dictionaries.append(dictionary)
+    return list_of_dictionaries
 
-safety_settings = [
-  {
-    "category": "HARM_CATEGORY_HARASSMENT",
-    "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-  },
-  {
-    "category": "HARM_CATEGORY_HATE_SPEECH",
-    "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-  },
-  {
-    "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-    "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-  },
-  {
-    "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
-    "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-  },
-]
 
-model = genai.GenerativeModel(model_name="gemini-1.0-pro",
-                              generation_config=generation_config,
-                              safety_settings=safety_settings)
+def dictionarify(ingredientsList):
+    recipeList = getRecipe(ingredientsList)
+    twoDlist = []
+    for item in recipeList:
+        twoDlist.append(search(item))
+    return dictionaryMaker(twoDlist)
 
-convo = model.start_chat(history=[])
-items = [x for x in input("Enter ingredients: ").split(' ')]
-convo.send_message(f"Act as an experienced chef and homecook. generate me list of food items where the key ingredients are all of {items};output the items in a single line seperated by commas")
-# print(convo.last.text)
-ingredients_list = convo.last.text.split(',')
-print(ingredients_list)
-stringmaker(ingredients_list)
+
+dictionarify(['apple','beetroot','grape'])
+
+
+
+
+
+
+
+
+
+# [{'link': 'https://www.indianhealthyrecipes.com/palak-paneer-recipe-easy-paneer-recipes-step-by-step-pics/', 'title': "Palak Paneer Recipe (Indian Spinach Paneer) - Swasthi's Recipes", 'img': 'https://www.indianhealthyrecipes.com/wp-content/uploads/2021/06/palak-paneer.jpg.webp'}, {'link': 'https://www.indianhealthyrecipes.com/dosa-recipe-dosa-batter/', 'title': "Dosa Recipe, How to Make Dosa Batter - Swasthi's Recipes", 'img': 'https://www.indianhealthyrecipes.com/wp-content/uploads/2020/07/dosa-recipe.jpg.webp'}, {'link': 'https://www.indianhealthyrecipes.com/soft-idli-recipe-using-idli-rava/', 'title': "Idli Recipe (Idli Batter Recipe with Pro Tips) - Swasthi's Recipes", 'img': 'https://www.indianhealthyrecipes.com/wp-content/uploads/2021/06/idli.jpg.webp'}]

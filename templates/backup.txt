@@ -284,7 +284,7 @@
                 <form id="inputForm">
                     <div class="searchcontainer">
                         <img src="static/Search.svg" id="searchicon" alt="">   
-                        <input type="text" id="input_data" name="input_data" class="searchbox-rectangle mt-9" list="food-items" ><br>
+                        <input type="text" id="input_data" name="input_data" class="searchbox-rectangle mt-9" ><br>
                     </div>
                     <div class="2Buttons ml-1">
                       <div class="addInputButton">
@@ -403,7 +403,7 @@
             </div>
         </div>
     </div>
-    <!-- <script>
+    <script>
         var inputValues = []; // Array to store input values
 
         // Function to add input to the array
@@ -439,105 +439,7 @@
             })
             .catch(error => console.error('Error:', error));
         });
-    </script> -->
-    <datalist id="food-items">
-        <option value="Salt"></option>
-        <option value="Pepper (black)"></option>
-        <option value="Olive oil"></option>
-        <option value="Garlic"></option>
-        <option value="Onions"></option>
-        <option value="Butter"></option>
-        <option value="Eggs"></option>
-        <option value="Flour (all-purpose)"></option>
-        <option value="Sugar (granulated)"></option>
-        <option value="Milk"></option>
-        <option value="Tomatoes"></option>
-        <option value="Rice"></option>
-        <option value="Chicken"></option>
-        <option value="Beef"></option>
-        <option value="Pasta"></option>
-        <option value="Potatoes"></option>
-        <option value="Lemon"></option>
-        <option value="Vinegar (white)"></option>
-        <option value="Soy sauce"></option>
-        <option value="Ginger"></option>
-        <option value="Cumin"></option>
-        <option value="Paprika"></option>
-        <option value="Oregano"></option>
-        <option value="Basil"></option>
-        <option value="Thyme"></option>
-        <option value="Rosemary"></option>
-        <option value="Bay leaves"></option>
-        <option value="Parsley"></option>
-        <option value="Cinnamon"></option>
-        <option value="Nutmeg"></option>
-        <option value="Coriander (ground or seeds)"></option>
-        <option value="Turmeric"></option>
-        <option value="Mustard (ground or seeds)"></option>
-        <option value="Honey"></option>
-        <option value="Worcestershire sauce"></option>
-        <option value="Sesame oil"></option>
-        <option value="Coconut milk"></option>
-        <option value="Fish sauce"></option>
-        <option value="Stock (chicken, beef, vegetable)"></option>
-        <option value="Parmesan cheese"></option>
-        <option value="Cheddar cheese"></option>
-        <option value="Mozzarella cheese"></option>
-        <option value="Feta cheese"></option>
-        <option value="Yogurt"></option>
-        <option value="Sour cream"></option>
-        <option value="Green onions/scallions"></option>
-        <option value="Bell peppers (red, green, yellow)"></option>
-        <option value="Carrots"></option>
-        <option value="Celery"></option>
-        <option value="Lemon juice"></option>
-    </datalist>
-    <script>
-        var inputValues = []; // Array to store input values
-    
-        // Function to add input to the array
-        function addInput() {
-            var input = document.getElementById('input_data').value;
-            if (input.trim() !== '') {
-                inputValues.push(input);
-                document.getElementById('input_data').value = '';
-                displayInputs();
-            }
-        }
-    
-        // Function to clear the accumulated inputs
-        function clearInputs() {
-            inputValues = [];
-            document.getElementById('input_data').value = '';
-            displayInputs();
-        }
-    
-        // Function to submit the form data
-        function submitInputs() {
-            var form = document.getElementById('inputForm');
-            // Prevent the default form submission
-            event.preventDefault();
-            // Send all the inputs to the server
-            fetch('/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(inputValues) // Send inputValues array as JSON
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log(data); // Log the response from the server
-                // Redirect to the result page or handle the response as needed
-                window.location.href = '/result';
-            })
-            .catch(error => console.error('Error:', error));
-        }
-    
-        // Add event listener to the form for submitting data
-        document.getElementById('inputForm').addEventListener('submit', submitInputs);
     </script>
-    
     <!-- <script>
         var inputValues = []; // Array to store input values
 
@@ -570,7 +472,7 @@
             .then(response => response.text())
             .then(data => {
                 console.log(data); // Log the response from the server
-                window.location.href = '/result_page';// Redirect to another page or handle the response as needed
+                // Redirect to another page or handle the response as needed
             })
             .catch(error => console.error('Error:', error));
         }

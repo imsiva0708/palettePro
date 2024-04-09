@@ -1,6 +1,6 @@
 import requests
 import os
-import json 
+# import json 
 from scrap import extract_main_image
 
 API_KEY = os.getenv('GOOGLE_CUSTOM_SEARCH_API_KEY')

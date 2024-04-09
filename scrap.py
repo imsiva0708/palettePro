@@ -14,8 +14,9 @@ def extract_main_image(recipe_url):
         for img_tag in img_tags:
             if 'height' in img_tag.attrs and int(img_tag['height']) >= 300:
                 image_url = img_tag.get('src')
-                if image_url[0]!='d':
-                    return image_url
+                if image_url:
+                    if image_url[0]!='d':
+                        return image_url
         return None
     except requests.exceptions.RequestException as e:
         print("Error fetching URL:", e)

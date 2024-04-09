@@ -1,0 +1,4 @@
+add a loading animation to the project (preferrablelly with countdown)
+add food facts while loading
+add selection chips 
+add select to get started
