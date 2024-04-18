@@ -20,6 +20,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <style>
         .body {
             max-width: 100%;
@@ -273,7 +276,6 @@
         bottom: 0;
         background-color: #1A202C; /* Change the background color as needed */
         }
-        /* HTML: <div class="loader"></div> */
         .loader {
             width: 100px;
             aspect-ratio: 1;
@@ -286,6 +288,43 @@
         }
         @keyframes l25 {
         100% {transform: rotate(1turn)}
+        /* HTML: <div class="loader"></div> */
+        }
+        #madeBy{
+            /* Made by T. Siva Rama Krishna T Shiva Prasad Chittimala Sandeep Paul */
+            padding-top: 10px;
+            margin-left: 3%;
+            width: 703px;
+            height: 307px;
+            font-family: 'Barlow';
+            font-style: italic;
+            font-weight: 800;
+            font-size: 59px;
+            line-height: 71px;
+            color: #FFFFFF;
+        }
+        .developedUsing{
+            /* Designed in Figma Developed Using HTML CSS - (TailwindCSS) JavaScript */
+        width: 300px;
+        height: 140px;
+        text-align: left;
+        padding-top: 90px;
+        font-family: 'Barlow';
+        font-style: normal;
+        font-weight: 550;
+        font-size: 24px;
+        line-height: 29px;
+        color: #FFFFFF;
+        bottom: 60px;
+        }
+        #madeBy .developedUsing{
+            padding-left: 25px;
+        }
+        .footLink{
+            text-decoration: underline;
+        }
+        .geminiGrp{
+            padding-top: 147px;
         }
         </style>
 </head>
@@ -354,7 +393,21 @@
     </main>
         
         <footer>
-            <div class="foot bg-green-800 opacity-40 bottom-0">hi my name is siva rama krishna</div>
+            <div class="foot bg-green-800 opacity-40 bottom-0 flex gap-8"><p id="madeBy">Made by <br> T Siva Rama Krishna <br>T Shiva Prasad <br>Sandeep Paul Chittimala		
+            </p>
+            <p class="developedUsing">
+                Designed in <a class="footLink" href="http://www.figma.com/">Figma</a><br> <br>
+                Developed Using <br>
+                HTML<br>
+                CSS - <a class="footLink" href="http://tailwindcss.com/">(TailwindCSS)</a><br>
+                JavaScript
+
+                </p>
+            <div class="developedUsing geminiGrp"><a class="footLink" href="https://ai.google.dev/">Gemini API</a> <br>
+                <a href="https://developers.google.com/custom-search/v1/overview"class="footLink">Google Custom Search</a><br><a href="https://beautiful-soup-4.readthedocs.io/en/latest/"class="footLink">BeautifulSoup</a>
+                <br>
+                Python<br></div>
+            </div>
         </footer>
         <datalist id="food-items">
             <option value="Salt"></option>
