@@ -311,7 +311,7 @@
                         {% for recommendation in recommendations %}
                         <div class="recommendation-slice">
                             <div class="recommendation-image">
-                                <img src='{{recommendation["img"]}}' alt="">
+                                <img src='{{recommendation["img"]}}' onerror="this.onerror=null;this.src='static/default.png';"">
                                 <div class="green-rectangle">
                                     <div class="spoon-container">
                                     </div>
@@ -325,79 +325,5 @@
             </div>
         </div>
     </div>
-    <script>
-        var inputValues = []; // Array to store input values
-
-        // Function to add input to the array
-        function addInput() {
-            var input = document.getElementById('input_data').value;
-            if (input.trim() !== '') {
-                inputValues.push(input);
-                document.getElementById('input_data').value = '';
-                displayInputs();
-            }
-        }
-        // Function to clear the accumulated inputs
-        function clearInputs() {
-            inputValues = [];
-            document.getElementById('input_data').value = '';
-            displayInputs();
-        }
-
-        document.getElementById('inputForm').addEventListener('submit', function(event) {
-            // event.preventDefault(); // Prevent the default form submission
-
-            // Send all the inputs to the server
-            fetch('/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(inputValues) // Send inputValues array as JSON
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log(data); // Log the response from the server
-            })
-            .catch(error => console.error('Error:', error));
-        });
-    </script>
-    <!-- <script>
-        var inputValues = []; // Array to store input values
-
-        // Function to add input to the array
-        function addInput() {
-            var input = document.getElementById('input_data').value;
-            if (input.trim() !== '') {
-                inputValues.push(input);
-                document.getElementById('input_data').value = '';
-                displayInputs();
-            }
-        }
-
-        // Function to clear the accumulated inputs
-        function clearInputs() {
-            inputValues = [];
-            document.getElementById('input_data').value = '';
-            displayInputs();
-        }
-
-        // Function to submit inputs to Flask backend
-        function submitInputs() {
-            fetch('/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(inputValues) // Send inputValues array as JSON
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log(data); // Log the response from the server
-                // Redirect to another page or handle the response as needed
-            })
-            .catch(error => console.error('Error:', error));
-        }
-    </script> -->
 </body>
 </html>

@@ -12,7 +12,7 @@ def extract_main_image(recipe_url):
         img_tags = soup.find_all('img')
         
         for img_tag in img_tags:
-            if 'height' in img_tag.attrs and int(img_tag['height']) >= 300:
+            if 'height' in img_tag.attrs and int(img_tag['height']) >= 250:
                 image_url = img_tag.get('src')
                 if image_url:
                     if image_url[0]!='d':

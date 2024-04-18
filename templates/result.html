@@ -257,12 +257,44 @@
             max-height: 18px;
             position: absolute;
         }
+        .selectIngredientsText{
+            margin-left: 22%;
+            margin-top: 7%;
+        }
+        .leftArrow{
+            margin-left: 7%;
+        }
+        .remy {
+            max-height: 250px;
+        }
+        .foot {
+        width: 100%;
+        height: 12%;
+        bottom: 0;
+        background-color: #1A202C; /* Change the background color as needed */
+        }
+        /* HTML: <div class="loader"></div> */
+        .loader {
+            width: 100px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: #3a5f45;
+            -webkit-mask: radial-gradient(circle closest-side at 50% 40%,#0000 94%, #000);
+            transform-origin: 50% 40%;
+            animation: l25 1s infinite linear;
+            margin-left: 25%;
+        }
+        @keyframes l25 {
+        100% {transform: rotate(1turn)}
+        }
         </style>
 </head>
-<body class ='body'>
-    <div class="container mx-auto">
-        <nav class="flex object-left">
-            <div class="nav-links">
+<body class ='body cursor-[url(static/finalCursor.png),_pointer]'>
+    <header>
+
+        <div class="container mx-auto">
+            <nav class="flex object-left">
+                <div class="nav-links">
                 <a href="#" class="px-5 nav-text">Saved</a>
                 <img src="static/Line_nav.svg" alt="">
                 <a href="#" class="px-5 nav-text">Join</a>
@@ -273,9 +305,12 @@
         <img src="static/fullLogo.svg" class="logo size_logo"  alt="logo">
         <h1 class="heading1 ml-1">Welcome to PalettePro</h1>
         <p class="para1">Your go-to destination for delicious recipes, and culinary inspiration! <br>
-        Whether you're a beginner or a seasoned chef, we've got something for everyone...
+            Whether you're a beginner or a seasoned chef, we've got something for everyone...
         </p> 
     </div>
+</header>
+<main>
+
     <div class="2_boxes flex container gap-9 mx-auto mtop">
         <div class="rectangleShell">
             <div class="outerRectangle-selectionbox">
@@ -287,17 +322,17 @@
                         <input type="text" id="input_data" name="input_data" class="searchbox-rectangle mt-9" list="food-items" ><br>
                     </div>
                     <div class="2Buttons ml-1">
-                      <div class="addInputButton">
-                        <button type="button" onclick="addInput()"class="buttonBox-yellow mt-4"><div class="flex text/vector ml-7 mt-1"><img src="static/plus.png"><span class="buttonfont">
-                            Add More ingredients
-                          </span></div></button><br>
+                        <div class="addInputButton">
+                            <button type="button" onclick="addInput()"class="buttonBox-yellow mt-4 hover:shadow-lg"><div class="flex text/vector ml-7 mt-1"><img src="static/plus.png"><span class="buttonfont">
+                                Add More ingredients
+                            </span></div></button><br>
                         </div>
                         <!-- <button type="button" value='Submit' onclick="clearInputs()">Clear Inputs</button><br> -->
-                        <div class="buttonBox-green mt-3">
-                          <div class="findRecipefont flex text/vector marginLeft mt-1">
-                            <img src="static/find_recipe.svg" class="h-6 mt-1.5 mr-1">
-                            <input type="submit" class="buttonfont mt-1 " value="Find Recipes">
-                          </div>
+                        <div class="buttonBox-green hover:shadow-lg mt-3 cursor-pointer">
+                            <div class="findRecipefont flex text/vector marginLeft mt-1">
+                                <img src="static/find_recipe.svg" class="h-6 mt-1.5 mr-1">
+                                <input type="submit" class="buttonfont mt-1 cursor-pointer" onclick="loading()" value="Find Recipes">
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -307,192 +342,77 @@
         <div class="resultBoxShell">
             <div class="resultOuterbox">
                 <div class="resultInnerbox mt-7">
-                    <div class="recommendations-outercontainer mt-6">  
-                        <!-- Repeat the recommendation-slice divs for each item -->
-                        <div class="recommendation-slice">
-                            <div class="recommendation-image">
-                                <img src="https://cdn.loveandlemons.com/wp-content/uploads/2019/09/pickled-red-onions.jpg" alt="Onion Rings">
-                                <div class="green-rectangle">
-                                    <div class="spoon-container">
-                                        <img class="spoon" src="static/winter-cozy-spoon-icon-by-Vexels 1.png" alt="Spoon Icon">
-                                    </div>
-                                    <p class="text">Pickled Red Onions - Recipes by Love and Lemons</p>
-                                    <a class="link" href="https://www.loveandlemons.com/pickled-red-onions/">https://www.loveandlemons.com/pickled-red-onions/</a>
-                                </div>
-                            </div>
-                        </div> <div class="recommendation-slice">
-                            <div class="recommendation-image">
-                                <img src="https://thesuburbansoapbox.com/wp-content/uploads/2021/08/Best-Gazpacho.jpg" alt="Onion Rings">
-                                <div class="green-rectangle">
-                                    <div class="spoon-container">
-                                        <img class="spoon" src="static/winter-cozy-spoon-icon-by-Vexels 1.png" alt="Spoon Icon">
-                                    </div>
-                                    <p class="text">The Best Gazpacho - The Suburban Soapbox</p>
-                                    <a class="link" href="https://thesuburbansoapbox.com/the-very-best-gazpacho-recipe/">https://thesuburbansoapbox.com/the-very-best-gazpacho-recipe/</a>
-                                </div>
-                            </div>
-                        </div> <div class="recommendation-slice">
-                            <div class="recommendation-image">
-                                <img src="https://www.allrecipes.com/thmb/EimL1mzTI4Wzqy0rnZxbrVq4c1s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/13309-rich-and-simple-french-onion-soup-mfs-037-d1fb84eae1254dabbfb99d8c9842fac0.jpg" alt="Onion Rings">
-                                <div class="green-rectangle">
-                                    <div class="spoon-container">
-                                        <img class="spoon" src="static/winter-cozy-spoon-icon-by-Vexels 1.png" alt="Spoon Icon">
-                                    </div>
-                                    <p class="text">Rich and Simple French Onion Soup Recipe</p>
-                                    <a class="link" href="https://www.allrecipes.com/recipe/13309/rich-and-simple-french-onion-soup/">https://www.allrecipes.com/recipe/13309/rich-and-simple-french-onion-soup/</a>
-                                </div>
-                            </div>
-                        </div> <div class="recommendation-slice">
-                            <div class="recommendation-image">
-                                <img src="None" alt="Onion Rings">
-                                <div class="green-rectangle">
-                                    <div class="spoon-container">
-                                        <img class="spoon" src="static/winter-cozy-spoon-icon-by-Vexels 1.png" alt="Spoon Icon">
-                                    </div>
-                                    <p class="text">Garlic Vinegar Recipe - Food.com</p>
-                                    <a class="link" href="https://www.food.com/recipe/garlic-vinegar-251602">https://www.food.com/recipe/garlic-vinegar-251602</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="recommendation-slice">
-                            <div class="recommendation-image">
-                                <img src="https://cdn.loveandlemons.com/wp-content/uploads/2019/09/pickled-red-onions.jpg" alt="Onion Rings">
-                                <div class="green-rectangle">
-                                    <div class="spoon-container">
-                                        <img class="spoon" src="static/winter-cozy-spoon-icon-by-Vexels 1.png" alt="Spoon Icon">
-                                    </div>
-                                    <p class="text">Pickled Red Onions - Recipes by Love and Lemons</p>
-                                    <a class="link" href="https://www.loveandlemons.com/pickled-red-onions/">https://www.loveandlemons.com/pickled-red-onions/</a>
-                                </div>
-                            </div>
-                        </div> <div class="recommendation-slice">
-                            <div class="recommendation-image">
-                                <img src="https://thesuburbansoapbox.com/wp-content/uploads/2021/08/Best-Gazpacho.jpg" alt="Onion Rings">
-                                <div class="green-rectangle">
-                                    <div class="spoon-container">
-                                        <img class="spoon" src="static/winter-cozy-spoon-icon-by-Vexels 1.png" alt="Spoon Icon">
-                                    </div>
-                                    <p class="text">The Best Gazpacho - The Suburban Soapbox</p>
-                                    <a class="link" href="https://thesuburbansoapbox.com/the-very-best-gazpacho-recipe/">https://thesuburbansoapbox.com/the-very-best-gazpacho-recipe/</a>
-                                </div>
-                            </div>
-                        </div> <div class="recommendation-slice">
-                            <div class="recommendation-image">
-                                <img src="https://www.allrecipes.com/thmb/EimL1mzTI4Wzqy0rnZxbrVq4c1s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/13309-rich-and-simple-french-onion-soup-mfs-037-d1fb84eae1254dabbfb99d8c9842fac0.jpg" alt="Onion Rings">
-                                <div class="green-rectangle">
-                                    <div class="spoon-container">
-                                        <img class="spoon" src="static/winter-cozy-spoon-icon-by-Vexels 1.png" alt="Spoon Icon">
-                                    </div>
-                                    <p class="text">Rich and Simple French Onion Soup Recipe</p>
-                                    <a class="link" href="https://www.allrecipes.com/recipe/13309/rich-and-simple-french-onion-soup/">https://www.allrecipes.com/recipe/13309/rich-and-simple-french-onion-soup/</a>
-                                </div>
-                            </div>
-                        </div> <div class="recommendation-slice">
-                            <div class="recommendation-image">
-                                <img src="None" alt="Onion Rings">
-                                <div class="green-rectangle">
-                                    <div class="spoon-container">
-                                        <img class="spoon" src="static/winter-cozy-spoon-icon-by-Vexels 1.png" alt="Spoon Icon">
-                                    </div>
-                                    <p class="text">Garlic Vinegar Recipe - Food.com</p>
-                                    <a class="link" href="https://www.food.com/recipe/garlic-vinegar-251602">https://www.food.com/recipe/garlic-vinegar-251602</a>
-                                </div>
-                            </div>
-                        </div>
+                    <img src="static/remy.png" class="remy absolute ml-7 mt-5" alt="">           
+                    <img class="selectIngredientsText left-16"src="static/Select Ingredients to get started.svg" alt="">
+                    <img class = "leftArrow" src="static/Frame.svg" alt="">
+                    <div class="load-container">
+                        <!-- <div class="loader"></div> -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- <script>
-        var inputValues = []; // Array to store input values
-
-        // Function to add input to the array
-        function addInput() {
-            var input = document.getElementById('input_data').value;
-            if (input.trim() !== '') {
-                inputValues.push(input);
-                document.getElementById('input_data').value = '';
-                displayInputs();
-            }
-        }
-        // Function to clear the accumulated inputs
-        function clearInputs() {
-            inputValues = [];
-            document.getElementById('input_data').value = '';
-            displayInputs();
-        }
-
-        document.getElementById('inputForm').addEventListener('submit', function(event) {
-            // event.preventDefault(); // Prevent the default form submission
-
-            // Send all the inputs to the server
-            fetch('/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(inputValues) // Send inputValues array as JSON
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log(data); // Log the response from the server
-            })
-            .catch(error => console.error('Error:', error));
-        });
-    </script> -->
-    <datalist id="food-items">
-        <option value="Salt"></option>
-        <option value="Pepper (black)"></option>
-        <option value="Olive oil"></option>
-        <option value="Garlic"></option>
-        <option value="Onions"></option>
-        <option value="Butter"></option>
-        <option value="Eggs"></option>
-        <option value="Flour (all-purpose)"></option>
-        <option value="Sugar (granulated)"></option>
-        <option value="Milk"></option>
-        <option value="Tomatoes"></option>
-        <option value="Rice"></option>
-        <option value="Chicken"></option>
-        <option value="Beef"></option>
-        <option value="Pasta"></option>
-        <option value="Potatoes"></option>
-        <option value="Lemon"></option>
-        <option value="Vinegar (white)"></option>
-        <option value="Soy sauce"></option>
-        <option value="Ginger"></option>
-        <option value="Cumin"></option>
-        <option value="Paprika"></option>
-        <option value="Oregano"></option>
-        <option value="Basil"></option>
-        <option value="Thyme"></option>
-        <option value="Rosemary"></option>
-        <option value="Bay leaves"></option>
-        <option value="Parsley"></option>
-        <option value="Cinnamon"></option>
-        <option value="Nutmeg"></option>
-        <option value="Coriander (ground or seeds)"></option>
-        <option value="Turmeric"></option>
-        <option value="Mustard (ground or seeds)"></option>
-        <option value="Honey"></option>
-        <option value="Worcestershire sauce"></option>
-        <option value="Sesame oil"></option>
-        <option value="Coconut milk"></option>
-        <option value="Fish sauce"></option>
-        <option value="Stock (chicken, beef, vegetable)"></option>
-        <option value="Parmesan cheese"></option>
-        <option value="Cheddar cheese"></option>
-        <option value="Mozzarella cheese"></option>
-        <option value="Feta cheese"></option>
-        <option value="Yogurt"></option>
-        <option value="Sour cream"></option>
-        <option value="Green onions/scallions"></option>
-        <option value="Bell peppers (red, green, yellow)"></option>
-        <option value="Carrots"></option>
-        <option value="Celery"></option>
-        <option value="Lemon juice"></option>
-    </datalist>
+    </main>
+        
+        <footer>
+            <div class="foot bg-green-800 opacity-40 bottom-0">hi my name is siva rama krishna</div>
+        </footer>
+        <datalist id="food-items">
+            <option value="Salt"></option>
+            <option value="Pepper (black)"></option>
+            <option value="Olive oil"></option>
+            <option value="Garlic"></option>
+            <option value="Onions"></option>
+            <option value="Butter"></option>
+            <option value="Eggs"></option>
+            <option value="Flour (all-purpose)"></option>
+            <option value="Sugar (granulated)"></option>
+            <option value="Milk"></option>
+            <option value="Tomatoes"></option>
+            <option value="Rice"></option>
+            <option value="Chicken"></option>
+            <option value="Beef"></option>
+            <option value="Pasta"></option>
+            <option value="Potatoes"></option>
+            <option value="Lemon"></option>
+            <option value="Vinegar (white)"></option>
+            <option value="Soy sauce"></option>
+            <option value="Ginger"></option>
+            <option value="Cumin"></option>
+            <option value="Paprika"></option>
+            <option value="Oregano"></option>
+            <option value="Basil"></option>
+            <option value="Thyme"></option>
+            <option value="Rosemary"></option>
+            <option value="Bay leaves"></option>
+            <option value="Parsley"></option>
+            <option value="Cinnamon"></option>
+            <option value="Nutmeg"></option>
+            <option value="Coriander (ground or seeds)"></option>
+            <option value="Turmeric"></option>
+            <option value="Mustard (ground or seeds)"></option>
+            <option value="Honey"></option>
+            <option value="Worcestershire sauce"></option>
+            <option value="Sesame oil"></option>
+            <option value="Coconut milk"></option>
+            <option value="Fish sauce"></option>
+            <option value="Stock (chicken, beef, vegetable)"></option>
+            <option value="Parmesan cheese"></option>
+            <option value="Cheddar cheese"></option>
+            <option value="Mozzarella cheese"></option>
+            <option value="Feta cheese"></option>
+            <option value="Yogurt"></option>
+            <option value="Sour cream"></option>
+            <option value="Green onions/scallions"></option>
+            <option value="Bell peppers (red, green, yellow)"></option>
+            <option value="Carrots"></option>
+            <option value="Celery"></option>
+            <option value="Lemon juice"></option>
+        </datalist>
+        
     <script>
+        function loading() {
+            document.querySelector('.loading-container').innerHTML = '<div class="loader"></div>'
+        }
         var inputValues = []; // Array to store input values
     
         // Function to add input to the array
@@ -538,42 +458,5 @@
         document.getElementById('inputForm').addEventListener('submit', submitInputs);
     </script>
     
-    <!-- <script>
-        var inputValues = []; // Array to store input values
-
-        // Function to add input to the array
-        function addInput() {
-            var input = document.getElementById('input_data').value;
-            if (input.trim() !== '') {
-                inputValues.push(input);
-                document.getElementById('input_data').value = '';
-                displayInputs();
-            }
-        }
-
-        // Function to clear the accumulated inputs
-        function clearInputs() {
-            inputValues = [];
-            document.getElementById('input_data').value = '';
-            displayInputs();
-        }
-
-        // Function to submit inputs to Flask backend
-        function submitInputs() {
-            fetch('/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(inputValues) // Send inputValues array as JSON
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log(data); // Log the response from the server
-                window.location.href = '/result_page';// Redirect to another page or handle the response as needed
-            })
-            .catch(error => console.error('Error:', error));
-        }
-    </script> -->
 </body>
 </html>

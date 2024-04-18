@@ -35,9 +35,10 @@ def index():
 @app.route('/submit', methods=['POST'])
 def submit():
     input_values = request.json  # Retrieve input values from JSON request
-    print("Received inputs:", input_values)
-    global dictRecommendations
-    dictRecommendations = dictionarify(input_values)
+    if input_values:
+        print("Received inputs:", input_values)
+        global dictRecommendations
+        dictRecommendations = dictionarify(input_values)
     return None
     
 
