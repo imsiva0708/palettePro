@@ -12,6 +12,7 @@ def dictionaryMaker(mainlist):
             'img': item[2]
         }
         list_of_dictionaries.append(dictionary)
+    # print(list_of_dictionaries)
     return list_of_dictionaries
 
 
@@ -20,6 +21,7 @@ def dictionarify(ingredientsList):
     twoDlist = []
     for item in recipeList:
         twoDlist.append(search(item))
+    # print(twoDlist)
     return dictionaryMaker(twoDlist)
 
 

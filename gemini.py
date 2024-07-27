@@ -37,8 +37,9 @@ model = genai.GenerativeModel(model_name="gemini-1.0-pro",
                               safety_settings=safety_settings)
 def getRecipe(items):
     convo = model.start_chat(history=[])
-    convo.send_message(f"Act as an experienced chef and homecook. generate me list of food items where the key ingredients are all of {items};output the items in a single line seperated by commas")
-    # print(convo.last.text)
-    recipe_list = convo.last.text.split(',')
+    convo.send_message(f"Act as an experienced chef and homecook. generate me a list of food items where the main ingredients are all of {items}; output the list in a single line seperated by $ symbol")
+    print(convo.last.text)
+    recipe_list = convo.last.text.split('$')
+    print(f'In recipe list : {recipe_list}')
     return recipe_list
 # getRecipe(['onion','tomato','potato'])

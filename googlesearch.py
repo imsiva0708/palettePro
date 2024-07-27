@@ -24,3 +24,4 @@ def search(item):
     list.append(title)
     list.append(extract_main_image(link))
     return list
+# print(search('potato Fry'))

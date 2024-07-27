@@ -1,24 +1,3 @@
-# from flask import Flask, render_template, request
-
-# app = Flask(__name__)
-
-# @app.route('/')
-# def index():
-#     return render_template('index.html')
-
-# @app.route('/submit', methods=['POST'])
-# def submit():
-#     input_data = request.form['input_data']
-#     result = process_input(input_data)  # Call a function to process the input
-#     return result  # Return the result directly
-
-# def process_input(input_data):
-#     # Process your input here
-#     # For example, convert to uppercase
-#     return input_data.upper()
-
-# if __name__ == '__main__':
-#     app.run(debug=True)
 
 
 from flask import Flask, render_template, request, jsonify
@@ -39,6 +18,7 @@ def submit():
         print("Received inputs:", input_values)
         global dictRecommendations
         dictRecommendations = dictionarify(input_values)
+        print(dictRecommendations)
     return None
     
 
