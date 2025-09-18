@@ -2,6 +2,10 @@ import requests
 import os
 # import json 
 from scrap import extract_main_image
+from dotenv import load_dotenv
+
+# Load variables from .env file
+load_dotenv()
 
 API_KEY = os.getenv('GOOGLE_CUSTOM_SEARCH_API_KEY')
 SEARCH_ID = os.getenv('GOOGLE_SEARCH_ENGINE_ID')

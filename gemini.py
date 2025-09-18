@@ -2,7 +2,10 @@ import os
 import googlesearch
 import google.generativeai as genai
 from stringmaker import stringmaker
+from dotenv import load_dotenv
 
+# Load variables from .env file
+load_dotenv()
 genai.configure(api_key=f"{os.getenv('GEMINI_API_KEY')}")
 
 # Set up the model
@@ -32,7 +35,7 @@ safety_settings = [
   },
 ]
 
-model = genai.GenerativeModel(model_name="gemini-1.0-pro",
+model = genai.GenerativeModel(model_name="gemini-1.5-flash",
                               generation_config=generation_config,
                               safety_settings=safety_settings)
 def getRecipe(items):
